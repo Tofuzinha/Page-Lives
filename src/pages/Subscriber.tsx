@@ -36,7 +36,7 @@ export function Subscriber() {
         <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center px-6">
             <div className="w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto" >
                 <div className="max-w-[640px]">
-                    <img src='/src/assets/logo-poring-light.png' className='w-auto h-[7rem]'/>
+                    <Logo />
                     <h1 className="mt-8 text-[2.5rem] text-gray-500 leading-tight">
                         Divirta-se e acompanhe 
                         <span className="text-pink-500 font-semibold"> games de League of Legends </span>
