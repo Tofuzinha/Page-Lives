@@ -2,26 +2,26 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import {Sidebar} from "../components/Sidebar";
 import Video from "../components/Video";
+import { WellCome } from "../components/WellCome";
 
 
-export function Event() {
+
+export default function Event() {
     const {slug} = useParams<{slug: string}>();
 
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex flex-1">
+            <main className="flex flex-1 bg-gray-600">
                 { slug 
                 ? <Video lessonSlug={slug}/> 
-                : <div className="flex-1" /> 
+                : <WellCome /> 
                 }
+                
                 <Sidebar />
             </main>
-            
 
         </div>
        
     )
 };
-
-export default Event;

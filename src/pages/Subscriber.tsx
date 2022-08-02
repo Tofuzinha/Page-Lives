@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/Logo";
 
 const CREATE_SUBSCRIBER_MUTATION = gql`
@@ -12,21 +13,23 @@ const CREATE_SUBSCRIBER_MUTATION = gql`
 
 export function Subscriber() {
 
+    const navigate = useNavigate();
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
-    const [createSubscriber] = useMutation(CREATE_SUBSCRIBER_MUTATION);
+    const [createSubscriber, { loading }] = useMutation(CREATE_SUBSCRIBER_MUTATION);
 
-    function handleSubscribe(event: FormEvent) {
+    async function handleSubscribe(event: FormEvent) {
         event?.preventDefault();
 
-        createSubscriber({
+         await createSubscriber({
             variables: {
                 name,
                 email,
             }
         });
-
+        navigate('/event');
     }
 
     return (
@@ -55,6 +58,7 @@ export function Subscriber() {
                         placeholder="Seu nome completo" 
                         onChange={event => setName(event.target.value)}
                         />
+
                         <input 
                         className="bg-gray-100 rounded px-5 h-12 text-gray-500 focus:outline-none focus:border-pink-200 focus:ring-1 focus:ring-pink-200 placeholder:text-gray-400"
                         type="text" 
@@ -64,7 +68,8 @@ export function Subscriber() {
 
                         <button 
                         type="submit"
-                        className="mt-5 bg-pink-700 uppercase py-5 rounded font-bold text-sm hover:bg-pink-800">
+                        disabled={loading}
+                        className="mt-5 bg-pink-700 uppercase py-5 rounded font-bold text-sm hover:bg-pink-800 disabled:opacity-50">
                             reserva
                         </button>
                     </form>
