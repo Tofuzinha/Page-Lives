@@ -28,8 +28,8 @@ export function Subscriber() {
     }
 
     return (
-        <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center px-6">
-            <div className="w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto" >
+        <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center px-6  ">
+            <div className="flex items-center justify-between flex-col mt-20 mx-auto md:flex-row" >
                 <div className="max-w-[640px]">
                     <Logo />
                     <h1 className="mt-8 text-[2.5rem] text-gray-500 leading-tight">
@@ -64,6 +64,7 @@ export function Subscriber() {
                         <button 
                         type="submit"
                         disabled={loading}
+                        target='_blank'
                         className="mt-5 bg-pink-700 uppercase py-5 rounded font-bold text-sm hover:bg-pink-800 disabled:opacity-50">
                             reserva
                         </button>
