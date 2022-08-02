@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { BannerInit } from "../components/BannerInit";
 import { Logo } from "../components/Logo";
 
 const CREATE_SUBSCRIBER_MUTATION = gql`
@@ -77,7 +78,7 @@ export function Subscriber() {
                 </div>
 
             </div>
-            <img src="/src/assets/bg-inscription.png" className="mt-10" alt="" />
+            <BannerInit />
         </div>
     );
 }
