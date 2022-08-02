@@ -4,8 +4,6 @@ import {Sidebar} from "../components/Sidebar";
 import Video from "../components/Video";
 import { WellCome } from "../components/WellCome";
 
-
-
 export default function Event() {
     const {slug} = useParams<{slug: string}>();
 
